@@ -1,105 +1,48 @@
-# 🏛️ PIA - Plataforma Inteligente para Alcaldías
+# PIA - Plataforma Inteligente para Alcaldias
 
-> Transformando el conocimiento institucional en decisiones inteligentes.
+PIA es una plataforma empresarial para apoyar la transformacion digital de las alcaldias. Su proposito es organizar el conocimiento institucional, facilitar procesos administrativos y ofrecer bases confiables para la atencion ciudadana y la toma de decisiones.
 
----
-
-## ¿Qué es PIA?
-
-PIA (Plataforma Inteligente para Alcaldías) es una plataforma de nueva generación diseñada para apoyar la transformación digital de las administraciones públicas mediante Inteligencia Artificial, Automatización, Gestión Documental y Analítica de Datos.
-
-Su propósito es convertir el conocimiento institucional en un activo estratégico para mejorar la atención al ciudadano, optimizar los procesos internos y apoyar la toma de decisiones.
-
----
+El producto se concibe como una solucion modular, auditable y preparada para crecer sin fragmentar prematuramente su operacion. En esta etapa el repositorio contiene exclusivamente su fundacion documental y estructural.
 
 ## Objetivos
 
-- Centralizar el conocimiento institucional.
-- Automatizar procesos administrativos.
-- Asistir a funcionarios mediante IA.
-- Facilitar el seguimiento del Plan de Desarrollo.
-- Mejorar la atención ciudadana.
-- Preservar el conocimiento institucional.
-
----
-
-## Principales características
-
-- Gestión Documental Inteligente.
-- Motor RAG.
-- Asistentes IA especializados.
-- Seguimiento del Plan de Desarrollo.
-- Dashboard Ejecutivo.
-- Auditoría.
-- Gestión de Usuarios.
-- Seguridad.
-- API REST.
-- Aplicación Web.
-- Aplicación de Escritorio.
-
----
+- Centralizar y preservar el conocimiento institucional.
+- Mejorar la trazabilidad de procesos y decisiones.
+- Facilitar la integracion responsable de capacidades de inteligencia artificial.
+- Proteger la informacion institucional y los datos de la ciudadania.
+- Proveer experiencias web, de escritorio y administrativas coherentes.
 
 ## Arquitectura
 
-PIA se desarrolla siguiendo una arquitectura:
+PIA adopta un monolito modular. Los limites de dominio y las responsabilidades se documentan antes de implementar funcionalidades. Las decisiones principales se registran en [Architecture Decision Records](docs/adr/README.md).
 
-- Domain Driven Design (DDD)
-- Modular Monolith
-- Clean Architecture
-- Event Driven (preparado)
-- AI First
+Componentes previstos:
 
----
+- API: FastAPI.
+- Aplicaciones web: React.
+- Aplicacion de escritorio: Tauri.
+- Persistencia: PostgreSQL.
+- Capacidades de IA: acceso mediante un AI Gateway.
 
-## Tecnologías
+Estas tecnologias estan documentadas como decisiones arquitectonicas; aun no se implementan en la estructura nueva de `apps/`.
 
-Backend
+## Estructura del repositorio
 
-- FastAPI
-- SQLAlchemy 2
-- Alembic
-
-Frontend
-
-- React
-- TypeScript
-- Vite
-
-Desktop
-
-- Tauri
-
-Base de datos
-
-- PostgreSQL
-
-IA
-
-- Ollama
-- OpenAI
-- Gemini
-- Claude
-
----
+```text
+apps/             Aplicaciones desplegables
+packages/         Modulos compartidos de PIA
+infrastructure/   Configuracion de infraestructura
+docs/             Documentacion del producto y ADR
+tests/            Pruebas transversales
+tools/            Herramientas internas del repositorio
+```
 
 ## Estado
 
-🚧 En desarrollo
+Version inicial: `0.1.0`. Sprint 1: fundacion del repositorio.
 
-Versión actual:
-
-0.1.0
-
----
-
-## Documentación
-
-Toda la documentación se encuentra en la carpeta:
-
-docs/
-
----
+Consulta [ROADMAP.md](ROADMAP.md), [CONTRIBUTING.md](CONTRIBUTING.md) y la [documentacion](docs/README.md) para conocer los siguientes pasos.
 
 ## Licencia
 
-Apache License 2.0
+Distribuido bajo Apache License 2.0. Consulta [LICENSE](LICENSE).

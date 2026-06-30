@@ -1,0 +1,69 @@
+name: Repository structure
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-structure:
+    name: Validate repository structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate required directories
+        shell: bash
+        run: |
+          required_directories=(
+            .github/ISSUE_TEMPLATE .github/workflows
+            docs/000-vision docs/001-negocio docs/002-dominio
+            docs/003-arquitectura docs/004-backend docs/005-frontend
+            docs/006-desktop docs/007-ai docs/008-rag docs/009-api
+            docs/010-database docs/011-security docs/012-devops
+            docs/013-roadmap docs/adr docs/assets
+            apps/api apps/web apps/desktop apps/admin
+            packages/pia-core packages/pia-domain packages/pia-security
+            packages/pia-ai packages/pia-rag packages/pia-search
+            packages/pia-audit packages/pia-shared
+            infrastructure/docker infrastructure/nginx
+            infrastructure/postgres infrastructure/scripts
+            tests tools
+          )
+
+          for directory in "${required_directories[@]}"; do
+            test -d "$directory" || {
+              echo "Missing required directory: $directory"
+              exit 1
+            }
+          done
+
+      - name: Validate required files
+        shell: bash
+        run: |
+          required_files=(
+            README.md LICENSE CHANGELOG.md ROADMAP.md CONTRIBUTING.md
+            CODE_OF_CONDUCT.md .gitignore .env.example .editorconfig
+            docs/README.md docs/000-vision/README.md
+            docs/001-negocio/README.md docs/002-dominio/README.md
+            docs/003-arquitectura/README.md docs/adr/README.md
+            docs/adr/ADR-0001-modular-monolith.md
+            docs/adr/ADR-0002-fastapi-backend.md
+            docs/adr/ADR-0003-react-frontend.md
+            docs/adr/ADR-0004-postgresql-database.md
+            docs/adr/ADR-0005-ai-gateway.md
+            .github/PULL_REQUEST_TEMPLATE.md
+            .github/ISSUE_TEMPLATE/bug_report.md
+            .github/ISSUE_TEMPLATE/feature_request.md
+            .github/workflows/ci.yml
+          )
+
+          for file in "${required_files[@]}"; do
+            test -f "$file" || {
+              echo "Missing required file: $file"
+              exit 1
+            }
+          done

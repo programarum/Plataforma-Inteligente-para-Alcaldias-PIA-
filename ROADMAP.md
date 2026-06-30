@@ -1,30 +1,25 @@
-# Roadmap
+# Roadmap de PIA
 
-## Fase 1
+Este roadmap expresa la direccion inicial del producto. Las prioridades pueden ajustarse mediante decisiones documentadas y validacion con las alcaldias participantes.
 
-- Arquitectura
-- Dominio
-- Kernel
-- Documentación
+## Sprint 1 - Repository Foundation
 
-## Fase 2
+- Estructura profesional del repositorio.
+- Documentacion inicial y ADR.
+- Plantillas de colaboracion y CI estructural.
 
-- Backend
-- Frontend
-- Desktop
+## Sprint 2 - Backend Foundation
 
-## Fase 3
+- Base de la API con FastAPI.
+- Configuracion, observabilidad y acceso a PostgreSQL.
+- Pruebas automatizadas de la fundacion backend.
 
-- Gestión Documental
+## Siguientes etapas
 
-## Fase 4
+- Fundacion de las aplicaciones web y de escritorio.
+- Identidad, autorizacion, seguridad y auditoria.
+- Capacidades documentales, busqueda y RAG.
+- AI Gateway y asistentes institucionales.
+- Analitica, seguimiento y despliegue municipal.
 
-- Motor IA
-
-## Fase 5
-
-- Especialistas IA
-
-## Fase 6
-
-- Implementación Municipal
+Cada etapa requiere alcance, criterios de aceptacion y decisiones arquitectonicas aprobadas antes de su implementacion.
