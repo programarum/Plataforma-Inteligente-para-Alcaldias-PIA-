@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2026-07-01
+
+### Added
+- Document metadata and manually supplied document chunk management.
+- Knowledge items and directed relations as the Knowledge Core foundation.
+- Modular repositories, use cases and HTTP APIs for documents and knowledge.
+- Alembic migration for document and knowledge persistence structures.
+- Integration tests covering document, chunk, knowledge item and relation flows.
+
 ## [0.3.0] - 2026-07-01
 
 ### Added

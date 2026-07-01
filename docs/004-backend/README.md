@@ -58,3 +58,13 @@ componentes de inteligencia artificial.
 La primera migración Alembic crea `municipalities`, `departments` y `audit_logs`.
 El contenedor API ejecuta `alembic upgrade head` antes de iniciar el servidor.
 
+## Documents and Knowledge Core
+
+Los módulos `documents` y `knowledge` conservan la misma separación modular del
+Kernel Core. Documents expone metadata documental y chunks suministrados
+manualmente bajo `/api/v1/documents`. Knowledge expone items y relaciones bajo
+`/api/v1/knowledge`.
+
+Knowledge depende únicamente del contrato documental para validar una fuente de
+tipo `document`; no lee archivos ni contiene infraestructura de IA. La migración
+`20260701_0002` agrega las cuatro tablas y queda encadenada al Kernel Core.

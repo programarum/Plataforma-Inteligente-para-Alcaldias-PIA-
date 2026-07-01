@@ -1,0 +1,19 @@
+"""Document repository ports."""
+
+from typing import Protocol
+from uuid import UUID
+
+from app.modules.documents.domain.models import Document, DocumentChunk
+
+
+class DocumentRepository(Protocol):
+    def add(self, document: Document) -> Document: ...
+    def list(self) -> list[Document]: ...
+    def get(self, document_id: UUID) -> Document | None: ...
+    def save(self, document: Document) -> Document: ...
+
+
+class DocumentChunkRepository(Protocol):
+    def add(self, chunk: DocumentChunk) -> DocumentChunk: ...
+    def list_by_document(self, document_id: UUID) -> list[DocumentChunk]: ...
+

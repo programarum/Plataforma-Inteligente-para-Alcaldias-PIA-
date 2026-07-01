@@ -9,6 +9,11 @@ from app.core.config import settings
 from app.core.database import metadata
 from app.modules.audit.domain.models import AuditLog  # noqa: F401
 from app.modules.departments.domain.models import Department  # noqa: F401
+from app.modules.documents.domain.models import Document, DocumentChunk  # noqa: F401
+from app.modules.knowledge.domain.models import (  # noqa: F401
+    KnowledgeItem,
+    KnowledgeRelation,
+)
 from app.modules.municipalities.domain.models import Municipality  # noqa: F401
 
 config = context.config

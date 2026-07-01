@@ -27,3 +27,18 @@ Todos los identificadores son UUID y los timestamps representan instantes UTC.
 La propiedad `department` de Municipality representa la división territorial
 colombiana y no debe confundirse con las dependencias organizacionales del
 módulo Department.
+
+## Documents y Knowledge Core
+
+`Document` representa la metadata de un archivo institucional y siempre se
+asocia con una alcaldía y una dependencia. Su ciclo permite actualizar metadata
+y archivar sin eliminar el registro. `DocumentChunk` es un fragmento textual
+ordenado, proporcionado explícitamente; no implica extracción automática.
+
+`KnowledgeItem` representa conocimiento estructurado procedente de un documento,
+norma, meta, indicador o fuente futura. `KnowledgeRelation` establece una
+relación dirigida entre dos items con tipo, descripción y confianza entre 0 y 1.
+
+La frontera es deliberada: Documents custodia referencias a archivos; Knowledge
+ofrece información estructurada para futuros consumidores. Las capacidades de IA
+y RAG consumirán Knowledge y no accederán directamente a Documents.

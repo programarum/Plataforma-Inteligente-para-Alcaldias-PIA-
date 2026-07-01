@@ -1,0 +1,19 @@
+"""Knowledge repository ports."""
+
+from typing import Protocol
+from uuid import UUID
+
+from app.modules.knowledge.domain.models import KnowledgeItem, KnowledgeRelation
+
+
+class KnowledgeItemRepository(Protocol):
+    def add(self, item: KnowledgeItem) -> KnowledgeItem: ...
+    def list(self) -> list[KnowledgeItem]: ...
+    def get(self, item_id: UUID) -> KnowledgeItem | None: ...
+    def save(self, item: KnowledgeItem) -> KnowledgeItem: ...
+
+
+class KnowledgeRelationRepository(Protocol):
+    def add(self, relation: KnowledgeRelation) -> KnowledgeRelation: ...
+    def list_by_source(self, source_item_id: UUID) -> list[KnowledgeRelation]: ...
+

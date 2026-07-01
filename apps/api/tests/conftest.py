@@ -25,6 +25,11 @@ os.environ.update(
 from app.core.database import Base, get_db
 from app.main import app
 from app.modules.audit.domain.models import AuditLog  # noqa: F401
+from app.modules.documents.domain.models import Document, DocumentChunk  # noqa: F401
+from app.modules.knowledge.domain.models import (  # noqa: F401
+    KnowledgeItem,
+    KnowledgeRelation,
+)
 
 test_engine = create_engine(
     "sqlite://",
