@@ -14,8 +14,12 @@ Thumbs.db
 # Dependencies
 node_modules/
 venv/
+.venv/
 __pycache__/
 *.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # Build outputs
 /dist/
