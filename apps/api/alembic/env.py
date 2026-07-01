@@ -15,6 +15,9 @@ from app.modules.knowledge.domain.models import (  # noqa: F401
     KnowledgeRelation,
 )
 from app.modules.municipalities.domain.models import Municipality  # noqa: F401
+from app.modules.permissions.domain.models import Permission  # noqa: F401
+from app.modules.roles.domain.models import Role, RolePermission  # noqa: F401
+from app.modules.users.domain.models import User, UserRole  # noqa: F401
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.database_url)

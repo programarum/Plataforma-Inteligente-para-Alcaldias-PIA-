@@ -30,6 +30,9 @@ from app.modules.knowledge.domain.models import (  # noqa: F401
     KnowledgeItem,
     KnowledgeRelation,
 )
+from app.modules.permissions.domain.models import Permission  # noqa: F401
+from app.modules.roles.domain.models import Role, RolePermission  # noqa: F401
+from app.modules.users.domain.models import User, UserRole  # noqa: F401
 
 test_engine = create_engine(
     "sqlite://",

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2026-07-01
+
+### Added
+- User, role and granular permission modules as the RBAC foundation.
+- Argon2 password hashing with no password hashes in API responses.
+- User-role and role-permission assignment, listing and removal endpoints.
+- Unique identity and permission constraints with institutional role scoping.
+- Alembic migration and integration tests for identity and RBAC workflows.
+
 ## [0.4.0] - 2026-07-01
 
 ### Added

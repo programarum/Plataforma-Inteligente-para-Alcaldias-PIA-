@@ -68,3 +68,14 @@ manualmente bajo `/api/v1/documents`. Knowledge expone items y relaciones bajo
 Knowledge depende únicamente del contrato documental para validar una fuente de
 tipo `document`; no lee archivos ni contiene infraestructura de IA. La migración
 `20260701_0002` agrega las cuatro tablas y queda encadenada al Kernel Core.
+
+## Users, Roles and Permissions
+
+Los módulos `users`, `roles` y `permissions` agregan la base RBAC manteniendo
+routers, casos de uso, dominio y persistencia por módulo. Sus endpoints permiten
+CRUD y desactivación, además de asignar roles a usuarios y permisos a roles.
+
+`pwdlib` con Argon2 genera los hashes de contraseña. Los schemas públicos no
+incluyen `password_hash`; no existen login, JWT, protección de rutas ni decisión
+de autorización en este sprint. La migración `20260701_0003` agrega las cinco
+tablas de identidad y asignación.

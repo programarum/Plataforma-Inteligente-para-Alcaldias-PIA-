@@ -42,3 +42,14 @@ relación dirigida entre dos items con tipo, descripción y confianza entre 0 y 
 La frontera es deliberada: Documents custodia referencias a archivos; Knowledge
 ofrece información estructurada para futuros consumidores. Las capacidades de IA
 y RAG consumirán Knowledge y no accederán directamente a Documents.
+
+## Identidad y RBAC
+
+`User` representa un funcionario o administrador vinculado a una alcaldía y,
+cuando corresponde, a una dependencia. `Role` agrupa responsabilidades dentro
+de una alcaldía y `Permission` identifica una acción granular mediante un código
+global único. `UserRole` y `RolePermission` forman las asignaciones RBAC.
+
+Una persona solo puede recibir roles de su misma alcaldía. Las credenciales se
+representan exclusivamente mediante un hash; autenticación, sesiones y
+evaluación de permisos se incorporarán en el Sprint 6.

@@ -1,0 +1,1 @@
+"""Role persistence adapters."""

@@ -7,9 +7,12 @@ requires-python = ">=3.12,<3.14"
 dependencies = [
     "alembic>=1.14,<2",
     "fastapi>=0.115,<1",
+    "email-validator>=2.2,<3",
     "psycopg[binary]>=3.2,<4",
     "pydantic>=2.10,<3",
     "pydantic-settings>=2.7,<3",
+    # pwdlib provides a small modern API and Argon2 recommended password hashes.
+    "pwdlib[argon2]>=0.2,<1",
     "sqlalchemy>=2.0,<3",
     "uvicorn[standard]>=0.34,<1",
 ]
@@ -44,4 +47,3 @@ plugins = ["pydantic.mypy"]
 [[tool.mypy.overrides]]
 module = "alembic.*"
 disallow_untyped_decorators = false
-

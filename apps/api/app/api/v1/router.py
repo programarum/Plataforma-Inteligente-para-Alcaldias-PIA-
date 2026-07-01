@@ -7,6 +7,9 @@ from app.modules.departments.api.router import router as departments_router
 from app.modules.documents.api.router import router as documents_router
 from app.modules.knowledge.api.router import router as knowledge_router
 from app.modules.municipalities.api.router import router as municipalities_router
+from app.modules.permissions.api.router import router as permissions_router
+from app.modules.roles.api.router import router as roles_router
+from app.modules.users.api.router import router as users_router
 
 router = APIRouter()
 router.include_router(health.router)
@@ -15,3 +18,6 @@ router.include_router(municipalities_router)
 router.include_router(departments_router)
 router.include_router(documents_router)
 router.include_router(knowledge_router)
+router.include_router(users_router)
+router.include_router(roles_router)
+router.include_router(permissions_router)
