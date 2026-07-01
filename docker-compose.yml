@@ -23,6 +23,8 @@ services:
       DEBUG: "true"
       DATABASE_URL: postgresql+psycopg://pia:pia@postgres:5432/pia
       JWT_SECRET: change-me
+      JWT_ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60
       LOG_LEVEL: INFO
     depends_on:
       postgres:
@@ -41,4 +43,3 @@ services:
 
 volumes:
   postgres_data:
-

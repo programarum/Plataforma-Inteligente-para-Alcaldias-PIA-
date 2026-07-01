@@ -7,7 +7,12 @@ from app.api.v1.router import router as api_v1_router
 from app.core.config import settings
 from app.core.lifespan import lifespan
 from app.core.logging import configure_logging
-from app.shared.exceptions import ConflictError, NotFoundError
+from app.shared.exceptions import (
+    AuthenticationError,
+    AuthorizationError,
+    ConflictError,
+    NotFoundError,
+)
 
 
 def create_app() -> FastAPI:
@@ -28,6 +33,22 @@ def create_app() -> FastAPI:
     @application.exception_handler(ConflictError)
     async def conflict_handler(_: Request, exc: ConflictError) -> JSONResponse:
         return JSONResponse(status_code=409, content={"detail": exc.detail})
+
+    @application.exception_handler(AuthenticationError)
+    async def authentication_handler(
+        _: Request, exc: AuthenticationError
+    ) -> JSONResponse:
+        return JSONResponse(
+            status_code=401,
+            content={"detail": exc.detail},
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    @application.exception_handler(AuthorizationError)
+    async def authorization_handler(
+        _: Request, exc: AuthorizationError
+    ) -> JSONResponse:
+        return JSONResponse(status_code=403, content={"detail": exc.detail})
 
     return application
 

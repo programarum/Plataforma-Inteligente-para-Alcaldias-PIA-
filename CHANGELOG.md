@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2026-07-01
+
+### Added
+- JWT access-token authentication using username or email credentials.
+- Current-user endpoint with effective roles and permissions.
+- Reusable active-user, superuser and granular permission dependencies.
+- Consistent 401 handling for missing, invalid and expired bearer tokens.
+- Authentication and authorization integration tests.
+
 ## [0.5.0] - 2026-07-01
 
 ### Added

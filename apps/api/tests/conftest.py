@@ -17,7 +17,9 @@ os.environ.update(
         "ENVIRONMENT": "development",
         "DEBUG": "true",
         "DATABASE_URL": "postgresql+psycopg://pia:pia@postgres:5432/pia",
-        "JWT_SECRET": "test-secret",
+        "JWT_SECRET": "test-secret-at-least-32-bytes-long",
+        "JWT_ALGORITHM": "HS256",
+        "ACCESS_TOKEN_EXPIRE_MINUTES": "60",
         "LOG_LEVEL": "INFO",
     }
 )

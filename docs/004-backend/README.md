@@ -79,3 +79,13 @@ CRUD y desactivación, además de asignar roles a usuarios y permisos a roles.
 incluyen `password_hash`; no existen login, JWT, protección de rutas ni decisión
 de autorización en este sprint. La migración `20260701_0003` agrega las cinco
 tablas de identidad y asignación.
+
+## Authentication
+
+El módulo `auth` agrega `/api/v1/auth/login` y `/api/v1/auth/me` sin crear tablas
+nuevas. La aplicación verifica hashes Argon2, firma access tokens JWT y resuelve
+roles y permisos efectivos desde RBAC.
+
+Las dependencias reutilizables viven en la frontera API del módulo y permiten
+proteger casos futuros por identidad activa, superusuario o código de permiso.
+Los routers continúan libres de reglas de autenticación y autorización.

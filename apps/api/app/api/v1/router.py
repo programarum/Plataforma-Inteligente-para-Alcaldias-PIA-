@@ -3,6 +3,7 @@
 from fastapi import APIRouter
 
 from app.api.v1.endpoints import health, version
+from app.modules.auth.api.router import router as auth_router
 from app.modules.departments.api.router import router as departments_router
 from app.modules.documents.api.router import router as documents_router
 from app.modules.knowledge.api.router import router as knowledge_router
@@ -21,3 +22,4 @@ router.include_router(knowledge_router)
 router.include_router(users_router)
 router.include_router(roles_router)
 router.include_router(permissions_router)
+router.include_router(auth_router)

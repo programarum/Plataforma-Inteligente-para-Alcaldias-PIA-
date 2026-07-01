@@ -25,6 +25,8 @@ class Settings(BaseSettings):
     debug: bool = True
     database_url: str = "postgresql+psycopg://pia:pia@postgres:5432/pia"
     jwt_secret: SecretStr = SecretStr("change-me")
+    jwt_algorithm: str = "HS256"
+    access_token_expire_minutes: int = 60
     log_level: str = "INFO"
 
 
@@ -35,4 +37,3 @@ def get_settings() -> Settings:
 
 
 settings = get_settings()
-
