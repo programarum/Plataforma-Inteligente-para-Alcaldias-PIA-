@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.5] - 2026-07-01
+
+### Changed
+- Stabilized environment parsing for common debug and release mode values.
+- Completed module documentation contracts across the backend.
+- Expanded Git exclusions for local SQLite database artifacts.
+
+### Added
+- Backend architecture audit and stabilization decision record.
+- Explicit expired JWT validation coverage.
+
 ## [0.6.0] - 2026-07-01
 
 ### Added

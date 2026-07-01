@@ -3,7 +3,7 @@
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import SecretStr
+from pydantic import SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -28,6 +28,18 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
     log_level: str = "INFO"
+
+    @field_validator("debug", mode="before")
+    @classmethod
+    def normalize_debug(cls, value: object) -> object:
+        """Accept common build-mode values used by developer environments."""
+        if isinstance(value, str):
+            normalized = value.lower()
+            if normalized in {"debug", "development"}:
+                return True
+            if normalized in {"release", "production"}:
+                return False
+        return value
 
 
 @lru_cache

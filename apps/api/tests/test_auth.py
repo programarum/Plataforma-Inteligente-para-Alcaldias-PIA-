@@ -1,10 +1,13 @@
 """Authentication and reusable authorization dependency tests."""
 
+from datetime import timedelta
 from typing import Annotated
 
+import pytest
 from fastapi import Depends
 from fastapi.testclient import TestClient
 
+from app.core.security import TokenError, create_access_token, decode_access_token
 from app.main import app
 from app.modules.auth.api.dependencies import require_permission
 from app.modules.auth.domain.entities import AuthenticatedIdentity
@@ -129,6 +132,13 @@ def test_me_rejects_missing_and_invalid_tokens(client: TestClient) -> None:
     assert invalid.status_code == 401
 
 
+def test_expired_token_is_rejected() -> None:
+    token, _ = create_access_token("expired-subject", timedelta(seconds=-1))
+
+    with pytest.raises(TokenError):
+        decode_access_token(token)
+
+
 def test_require_permission_allows_and_denies(client: TestClient) -> None:
     create_identity(client)
     token = login(client).json()["access_token"]
@@ -136,4 +146,3 @@ def test_require_permission_allows_and_denies(client: TestClient) -> None:
 
     assert client.get("/api/v1/test/allowed", headers=headers).status_code == 200
     assert client.get("/api/v1/test/denied", headers=headers).status_code == 403
-
