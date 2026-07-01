@@ -14,7 +14,6 @@ jobs:
 
       - name: Validate core repository structure
         run: |
-          test -d .github
           test -d docs
           test -d apps
           test -d packages
