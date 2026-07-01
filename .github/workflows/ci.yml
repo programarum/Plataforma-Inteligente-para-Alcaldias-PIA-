@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  structure-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate core repository structure
+        run: |
+          test -d .github
+          test -d docs
+          test -d apps
+          test -d packages
+          test -d infrastructure
+          test -d tests
+          test -d tools
+          test -f README.md
+          test -f LICENSE
+          test -f CHANGELOG.md
+          test -f ROADMAP.md
+          test -f CONTRIBUTING.md
+          test -f CODE_OF_CONDUCT.md
+          test -f .gitignore
+          test -f .env.example
+          test -f .editorconfig
