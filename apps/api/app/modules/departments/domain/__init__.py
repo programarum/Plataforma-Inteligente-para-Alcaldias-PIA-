@@ -1,1 +1,0 @@
-"""Departments domain model."""

@@ -1,1 +1,0 @@
-"""Departments persistence infrastructure."""
