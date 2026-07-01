@@ -33,13 +33,15 @@ Desde la raíz del repositorio:
 docker compose up --build
 ```
 
-El comando inicia PostgreSQL y la API. Para detenerlos use
+El comando inicia PostgreSQL, aplica `alembic upgrade head` y levanta la API. Para detenerlos use
 `docker compose down`. Los datos de PostgreSQL se conservan en un volumen.
 
 ## Endpoints iniciales
 
 - `GET /api/v1/health`: disponibilidad del servicio.
 - `GET /api/v1/version`: versión y entorno de la aplicación.
+- `/api/v1/municipalities`: creación, listado, consulta y actualización de alcaldías.
+- `/api/v1/departments`: creación, listado, consulta y actualización de dependencias.
 - `GET /docs`: documentación interactiva OpenAPI.
 
 ## Calidad
@@ -54,11 +56,10 @@ uv run mypy app
 
 ## Alembic
 
-Alembic comparte la configuración de conexión de la aplicación. Aún no existen
-modelos ni migraciones de tablas. Cuando se incorporen modelos, los comandos se
-ejecutarán desde `apps/api`, por ejemplo:
+Alembic comparte la configuración de conexión de la aplicación. Los comandos se
+ejecutan desde `apps/api`, por ejemplo:
 
 ```bash
 uv run alembic current
+uv run alembic upgrade head
 ```
-

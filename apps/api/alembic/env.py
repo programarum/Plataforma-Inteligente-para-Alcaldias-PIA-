@@ -7,6 +7,9 @@ from sqlalchemy import engine_from_config, pool
 from alembic import context
 from app.core.config import settings
 from app.core.database import metadata
+from app.modules.audit.domain.models import AuditLog  # noqa: F401
+from app.modules.departments.domain.models import Department  # noqa: F401
+from app.modules.municipalities.domain.models import Municipality  # noqa: F401
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.database_url)
@@ -51,4 +54,3 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
-

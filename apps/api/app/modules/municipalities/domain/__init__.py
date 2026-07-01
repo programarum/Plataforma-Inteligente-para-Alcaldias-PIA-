@@ -1,0 +1,2 @@
+"""Municipality domain contracts."""
+

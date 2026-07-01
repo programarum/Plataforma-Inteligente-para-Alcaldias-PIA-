@@ -1,0 +1,2 @@
+"""Municipality use cases."""
+

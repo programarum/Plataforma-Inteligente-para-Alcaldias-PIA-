@@ -1,0 +1,2 @@
+"""Municipality HTTP interface."""
+

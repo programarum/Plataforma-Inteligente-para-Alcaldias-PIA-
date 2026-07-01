@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2026-07-01
+
+### Added
+- Institutional Kernel Core modules for municipalities, departments and audit.
+- Municipality and department CRUD APIs with explicit deactivation operations.
+- UUID-based SQLAlchemy models with UTC timestamps and modular repositories.
+- Initial Alembic migration for Kernel Core tables and constraints.
+- Integration tests for institutional API workflows and validation rules.
+
 ## [0.2.0] - 2026-07-01
 
 ### Added

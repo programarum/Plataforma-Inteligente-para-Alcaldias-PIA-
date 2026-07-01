@@ -5,3 +5,25 @@ Este directorio recoge el entendimiento inicial del dominio del problema y los c
 ## Propósito
 
 Mantener un vocabulario común para el producto y facilitar futuras implementaciones.
+
+## Kernel Core institucional
+
+El núcleo inicial representa la estructura mínima de una alcaldía mediante tres
+conceptos:
+
+- **Municipality**: institución municipal principal. Conserva su identidad,
+  ubicación, alcalde, periodo de gobierno, misión, visión y estado operativo.
+- **Department**: dependencia organizacional perteneciente a una única
+  alcaldía. Registra su propósito, responsable y estado operativo.
+- **AuditLog**: registro inmutable de una acción sobre una entidad institucional.
+  Su actor puede ser desconocido mientras no exista el módulo de usuarios.
+
+Una alcaldía puede contener múltiples dependencias. Una dependencia no puede
+crearse para una alcaldía inexistente. Municipality y Department se desactivan
+de forma lógica mediante `is_active`; no se eliminan físicamente, preservando la
+trazabilidad institucional.
+
+Todos los identificadores son UUID y los timestamps representan instantes UTC.
+La propiedad `department` de Municipality representa la división territorial
+colombiana y no debe confundirse con las dependencias organizacionales del
+módulo Department.

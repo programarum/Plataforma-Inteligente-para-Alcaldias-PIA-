@@ -1,0 +1,2 @@
+"""Municipality persistence adapters."""
+
