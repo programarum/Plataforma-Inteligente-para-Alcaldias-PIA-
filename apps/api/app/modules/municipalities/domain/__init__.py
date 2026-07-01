@@ -1,0 +1,1 @@
+"""Municipalities domain model."""

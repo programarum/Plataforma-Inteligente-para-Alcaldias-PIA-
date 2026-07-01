@@ -49,7 +49,21 @@ uv run mypy app
 
 - `GET /api/v1/health`: estado del proceso de API.
 - `GET /api/v1/version`: version y entorno configurados.
+- `/api/v1/municipalities`: creacion, listado, consulta, actualizacion y desactivacion de alcaldias.
+- `/api/v1/departments`: creacion, listado, consulta, actualizacion y desactivacion de dependencias.
 
 ## Migraciones
 
-Alembic esta configurado para usar `DATABASE_URL` y la metadata declarativa de SQLAlchemy. Aun no existen modelos ni migraciones de tablas. Cuando haya modelos aprobados, las migraciones se gestionaran desde este directorio con `uv run alembic`.
+Alembic usa `DATABASE_URL` y la metadata declarativa de SQLAlchemy. Desde `apps/api`, aplica las migraciones con:
+
+```bash
+uv run alembic upgrade head
+```
+
+Con Docker, ejecuta la migracion una vez que los servicios esten activos:
+
+```bash
+docker compose exec api .venv/bin/alembic upgrade head
+```
+
+La revision `20260701_0001` crea las tablas iniciales del Kernel Core. Toda modificacion futura del esquema debe incorporarse mediante una nueva migracion.

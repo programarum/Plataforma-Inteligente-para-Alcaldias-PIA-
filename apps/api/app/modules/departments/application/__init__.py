@@ -1,0 +1,1 @@
+"""Departments application use cases."""

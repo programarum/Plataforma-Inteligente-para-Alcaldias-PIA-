@@ -1,0 +1,1 @@
+"""Municipalities application use cases."""

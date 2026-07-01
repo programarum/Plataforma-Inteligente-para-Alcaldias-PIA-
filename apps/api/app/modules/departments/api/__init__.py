@@ -1,0 +1,1 @@
+"""Departments HTTP API."""
